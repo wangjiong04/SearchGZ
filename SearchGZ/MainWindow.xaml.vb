@@ -105,6 +105,7 @@ Class MainWindow
         If needUnzip And Directory.Exists(txtFile.Text) Then
             Unzip(txtFile.Text)
         End If
+        checkBox.IsChecked = False
         SearchItems()
     End Sub
 
@@ -288,6 +289,13 @@ Class MainWindow
                 list.Add(item)
             End If
         Next
+        If txtContent.Text.Trim <> "" Then
+            For Each item In list.ToList
+                If findInFile(item.FileName, txtContent.Text) = False Then
+                    list.Remove(item)
+                End If
+            Next
+        End If
         lblCount.Content = "File count: " + list.Count.ToString
         Me.lstFiles.ItemsSource = list
     End Sub
@@ -374,4 +382,15 @@ Class MainWindow
     Private Sub txtFile_TextChanged(sender As Object, e As TextChangedEventArgs) Handles txtFile.TextChanged
         needUnzip = True
     End Sub
+
+    Public Function findInFile(ByVal filename As String, ByVal strContent As String) As Boolean
+        Dim strInput = IO.File.ReadAllText(filename)
+        Dim iResult As Int32
+        iResult = InStr(1, strInput, strContent)
+        If iResult = 0 Then
+            Return False
+        Else
+            Return True
+        End If
+    End Function
 End Class
