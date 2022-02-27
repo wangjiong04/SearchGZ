@@ -252,6 +252,10 @@ Class MainWindow
                 strExtention = strExtention + ".xml"
 
             End If
+            If chkDat.IsChecked Then
+                strExtention = strExtention + ".dat"
+
+            End If
             If strExtention <> "" Then
                 If strExtention.IndexOf(item.Extension.ToLower) < 0 Then
                     isAllMatch = False

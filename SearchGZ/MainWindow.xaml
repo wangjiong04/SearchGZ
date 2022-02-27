@@ -16,8 +16,8 @@
         <Label x:Name="label" Content="Select to search:" HorizontalAlignment="Right" Margin="0,-139,228.667,0" VerticalAlignment="Top" Width="106" Grid.ColumnSpan="3"/>
         <TextBox x:Name="txtFile" Height="23" Margin="0,-137,307,0" TextWrapping="Wrap" VerticalAlignment="Top" IsReadOnlyCaretVisible="True" Grid.ColumnSpan="3" IsReadOnly="False" BorderBrush="#FF202229" HorizontalAlignment="Right" Width="594" Grid.Column="1"/>
         <Button x:Name="btnSelect" Content="Browse Folder" HorizontalAlignment="Left" Margin="391.333,-137,0,0" VerticalAlignment="Top" Width="93" Grid.Column="3" Height="23"/>
-        <Button x:Name="btnSearch" Content="Search" HorizontalAlignment="Left" Margin="19,86,0,0" VerticalAlignment="Top" Width="75"/>
-        <Button x:Name="btnCopyTo" Content="Copy To" HorizontalAlignment="Left" Margin="20,86,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.693,2.317" Grid.Column="1" Grid.ColumnSpan="2"/>
+        <Button x:Name="btnSearch" Content="Search" HorizontalAlignment="Left" Margin="19,93,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button x:Name="btnCopyTo" Content="Copy To" HorizontalAlignment="Left" Margin="20,93,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.693,2.317" Grid.Column="1" Grid.ColumnSpan="2"/>
         <ListView x:Name="lstFiles" HorizontalAlignment="Left" IsSynchronizedWithCurrentItem="True" Height="359" Margin="20,121,0,0" VerticalAlignment="Top" Width="860" Grid.ColumnSpan="4" GridViewColumnHeader.Click="GridViewColumnHeaderClickedHandler">
             <ListView.View>
                 <GridView>
@@ -48,14 +48,15 @@
                 <Label x:Name="label2" Content="Days" Canvas.Left="185" Canvas.Top="30"/>
             </Canvas>
         </GroupBox>
-        <GroupBox x:Name="groupBox" Header="File Extension" HorizontalAlignment="Left" Margin="19,-22,0,0" VerticalAlignment="Top" Grid.ColumnSpan="4" Height="92" Width="342">
-            <Canvas HorizontalAlignment="Left" Height="69" VerticalAlignment="Top" Width="328" Margin="0,0,0,-0.333">
+        <GroupBox x:Name="groupBox" Header="File Extension" HorizontalAlignment="Left" Margin="19,-22,0,0" VerticalAlignment="Top" Grid.ColumnSpan="4" Height="110" Width="342">
+            <Canvas HorizontalAlignment="Left" Height="92" VerticalAlignment="Top" Width="328" Margin="0,0,0,-5.333">
                 <CheckBox x:Name="chkJson" Content="JSON File" Canvas.Left="6" Canvas.Top="6" />
                 <CheckBox x:Name="chkEDI" Content="EDI File" Canvas.Left="6" Canvas.Top="28"/>
                 <CheckBox x:Name="chkXML" Content="XML File" Canvas.Left="6" Canvas.Top="50"/>
+                <CheckBox x:Name="chkDat" Content="Dat File" Canvas.Left="6" Canvas.Top="73"/>
             </Canvas>
         </GroupBox>
-        <CheckBox x:Name="checkBox" Content="Select All/Deselect All" Grid.Column="2" HorizontalAlignment="Left" Margin="226,89,0,0" VerticalAlignment="Top" Width="137" Grid.ColumnSpan="2"/>
+        <CheckBox x:Name="checkBox" Content="Select All/Deselect All" Grid.Column="2" HorizontalAlignment="Left" Margin="226,96,0,0" VerticalAlignment="Top" Width="137" Grid.ColumnSpan="2"/>
         <GroupBox x:Name="groupBox1" Grid.Column="3" Header="Other" HorizontalAlignment="Left" Margin="31.333,-107,0,0" VerticalAlignment="Top" Height="177" Width="514">
             <Canvas HorizontalAlignment="Right" Height="175" Margin="0,-8,-2,-13.667" VerticalAlignment="Top" Width="504">
                 <Label x:Name="Doc_Type_" Content="Doc_Type:" Canvas.Top="7" RenderTransformOrigin="0.132,0.282" Canvas.Left="1"/>
@@ -66,7 +67,7 @@
                 <TextBox x:Name="txtContent" Height="23" Canvas.Left="59" TextWrapping="Wrap" Canvas.Top="41" Width="279"/>
             </Canvas>
         </GroupBox>
-        <Label x:Name="lblCount" Content="File count:" Grid.Column="3" HorizontalAlignment="Left" Margin="135.333,83,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="btnCopyToTest" Content="Copy To Test" HorizontalAlignment="Left" Margin="117,86,0,0" VerticalAlignment="Top" Width="84" RenderTransformOrigin="0.693,2.317" Grid.Column="1" Grid.ColumnSpan="2"/>
+        <Label x:Name="lblCount" Content="File count:" Grid.Column="3" HorizontalAlignment="Left" Margin="135.333,90,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="btnCopyToTest" Content="Copy To Test" HorizontalAlignment="Left" Margin="117,93,0,0" VerticalAlignment="Top" Width="84" RenderTransformOrigin="0.693,2.317" Grid.Column="1" Grid.ColumnSpan="2"/>
     </Grid>
 </Window>
