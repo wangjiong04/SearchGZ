@@ -240,6 +240,7 @@ Class MainWindow
         Dim list As New ObservableCollection(Of FileItem)
 
         For Each item As FileItem In allItems
+            Dim fileExtention As String = item.Extension.ToLower
             Dim isAllMatch As Boolean = True
             Dim strExtention As String = ""
             If chkEDI.IsChecked Then
@@ -250,14 +251,21 @@ Class MainWindow
             End If
             If chkXML.IsChecked Then
                 strExtention = strExtention + ".xml"
-
             End If
             If chkDat.IsChecked Then
                 strExtention = strExtention + ".dat"
-
+            End If
+            If chkAny.IsChecked And txtAny.Text.Trim <> "" Then
+                strExtention = strExtention + txtAny.Text
+            End If
+            If chkempty.IsChecked = True Then
+                strExtention = strExtention + ".empty"
+                If item.Extension = "" Then
+                    fileExtention = ".empty"
+                End If
             End If
             If strExtention <> "" Then
-                If strExtention.IndexOf(item.Extension.ToLower) < 0 Then
+                If strExtention.IndexOf(fileExtention) < 0 Then
                     isAllMatch = False
                 End If
             End If
