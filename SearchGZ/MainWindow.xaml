@@ -19,7 +19,12 @@
         <Button x:Name="btnSearch" Content="Search" HorizontalAlignment="Left" Margin="19,102,0,0" VerticalAlignment="Top" Width="75"/>
         <Button x:Name="btnCopyTo" Content="Copy To" HorizontalAlignment="Left" Margin="20,102,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.693,2.317" Grid.Column="1" Grid.ColumnSpan="2"/>
         <ListView x:Name="lstFiles" HorizontalAlignment="Left" IsSynchronizedWithCurrentItem="True" Height="359" Margin="20,133,0,0" VerticalAlignment="Top" Width="860" Grid.ColumnSpan="4" GridViewColumnHeader.Click="GridViewColumnHeaderClickedHandler">
-            <ListView.View>
+            <ListView.ItemContainerStyle>                
+                <Style x:Name="itemstyle" TargetType="{x:Type ListViewItem}">
+                    <EventSetter Event="MouseDoubleClick" Handler="HandleDoubleClick" />
+                </Style>
+            </ListView.ItemContainerStyle>
+            <ListView.View>                
                 <GridView>
                     <GridViewColumn>
                         <GridViewColumn.CellTemplate>
@@ -34,8 +39,6 @@
                     <GridViewColumn Header="DocType" Width="100" DisplayMemberBinding="{Binding DocType}" />
                 </GridView>
             </ListView.View>
-
-
         </ListView>
         <GroupBox x:Name="Date" Header="Date" HorizontalAlignment="Left" Margin="19,-92,0,0" VerticalAlignment="Top" Height="82" Width="342" Grid.ColumnSpan="4">
             <Canvas HorizontalAlignment="Left" Height="69" VerticalAlignment="Top" Width="334" Margin="0,0,0,-1">
@@ -63,11 +66,14 @@
         <GroupBox x:Name="groupBox1" Grid.Column="3" Header="Other" HorizontalAlignment="Left" Margin="31.333,-92,0,0" VerticalAlignment="Top" Height="177" Width="514">
             <Canvas HorizontalAlignment="Right" Height="175" Margin="0,-8,-2,-13.667" VerticalAlignment="Top" Width="504">
                 <Label x:Name="Doc_Type_" Content="Doc_Type:" Canvas.Top="7" RenderTransformOrigin="0.132,0.282" Canvas.Left="1"/>
-                <TextBox x:Name="txtDocType" Height="23" TextWrapping="Wrap" Canvas.Top="8" Width="138" Canvas.Left="59"/>
-                <Label x:Name="Doc_Type__Copy" Content="Trading Partner Name:" Canvas.Left="210" Canvas.Top="7" RenderTransformOrigin="0.132,0.282"/>
-                <TextBox x:Name="txtTPName" Height="23" Canvas.Left="343" TextWrapping="Wrap" Canvas.Top="8" Width="151"/>
-                <Label x:Name="label3" Content="Content:" Canvas.Left="1" Canvas.Top="38" RenderTransformOrigin="0.026,0.269" HorizontalAlignment="Left"/>
-                <TextBox x:Name="txtContent" Height="23" Canvas.Left="59" TextWrapping="Wrap" Canvas.Top="41" Width="279"/>
+                <TextBox x:Name="txtDocType" Height="23" TextWrapping="Wrap" Canvas.Top="8" Width="96" Canvas.Left="110"/>
+                <Label x:Name="Doc_Type__Copy" Content="Trading Partner Name:" Canvas.Left="211" Canvas.Top="7" RenderTransformOrigin="0.132,0.282"/>
+                <TextBox x:Name="txtTPName" Height="23" Canvas.Left="353" TextWrapping="Wrap" Canvas.Top="8" Width="141"/>
+                <Label x:Name="label3" Content="Content:" Canvas.Left="1" Canvas.Top="84" RenderTransformOrigin="0.026,0.269" HorizontalAlignment="Left"/>
+                <TextBox x:Name="txtContent" Height="23" Canvas.Left="110" TextWrapping="Wrap" Canvas.Top="86" Width="288"/>
+                <Label x:Name="label4" Content="Fname Sub-string" Canvas.Left="1" Canvas.Top="48"/>
+                <TextBox x:Name="txtSubstring" Height="23" Canvas.Left="110" TextWrapping="Wrap" Canvas.Top="48" Width="288"/>
+
             </Canvas>
         </GroupBox>
         <Label x:Name="lblCount" Content="File count:" Grid.Column="3" HorizontalAlignment="Left" Margin="135.333,99,0,0" VerticalAlignment="Top"/>

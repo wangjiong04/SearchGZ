@@ -297,7 +297,13 @@ Class MainWindow
                     isAllMatch = False
                 End If
             End If
-            If isAllMatch Then
+            If txtSubstring.Text.Trim <> "" Then
+                Dim strfilename As String = Path.GetFileName(item.FileName).Replace("-", "_").ToLower
+                If strfilename.IndexOf(txtSubstring.Text.Trim.ToLower) < 0 Then
+                    isAllMatch = False
+                End If
+            End If
+                If isAllMatch Then
                 list.Add(item)
             End If
         Next
@@ -366,7 +372,9 @@ Class MainWindow
 
     Private Sub Sort(ByVal sortBy As String, ByVal direction As ListSortDirection)
         Dim dataView As ICollectionView = CollectionViewSource.GetDefaultView(lstFiles.ItemsSource)
-
+        If dataView Is Nothing Then
+            Exit Sub
+        End If
         dataView.SortDescriptions.Clear()
         Dim sd As New SortDescription(sortBy, direction)
         dataView.SortDescriptions.Add(sd)
@@ -405,4 +413,12 @@ Class MainWindow
             Return True
         End If
     End Function
+    Private Sub HandleDoubleClick(sender As Object, e As MouseButtonEventArgs) Handles lstFiles.MouseDoubleClick
+        If TypeOf (sender) IsNot Controls.ListViewItem Then
+            Exit Sub
+        End If
+        Dim listItem As Controls.ListViewItem = CType(sender, Controls.ListViewItem)
+        Dim item As FileItem = CType(listItem.Content, FileItem)
+        Process.Start("notepad.exe", item.FileName)
+    End Sub
 End Class
